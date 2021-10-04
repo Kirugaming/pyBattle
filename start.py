@@ -6,14 +6,7 @@ def start():
     playerNameInput = input("Enter a name for your character: ")
 
     playerData = open("playerVariables.json", "w")
-    playerData.write("{\n"
-                     "\"player\": ["
-                     " {\n"
-                     "\"playerName\": \"" + playerNameInput + "\",\n"
-                                                              "\"playerMaxHealth\": 100\n"
-                                                              "}\n"
-                                                              "]\n"
-                                                              "}")
+    playerData.write("{\"player\": [ {\"playerName\": \"" + playerNameInput + "\",\"playerMaxHealth\": 100}]}")
     playerData = open("playerVariables.json", "r")
     jsonPlayerData = json.load(playerData)
 
@@ -21,3 +14,4 @@ def start():
 
     print("Starting fight test...")
     fight()
+# add story to start later

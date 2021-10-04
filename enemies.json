@@ -1,0 +1,15 @@
+{"enemy": [
+    {
+      "enemyName": "Skeleton",
+      "enemyMaxHealth": 10
+    },
+    {
+      "enemyName": "Zombie",
+      "enemyMaxHealth": 20
+    },
+    {
+      "enemyName": "Bandit",
+      "enemyMaxHealth": 30
+    }
+  ]
+}
