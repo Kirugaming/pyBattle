@@ -1,4 +1,4 @@
-from start import start
+from start import *
 
 print("Battle!")
 answer = input("Start Game? [Y/n]")
