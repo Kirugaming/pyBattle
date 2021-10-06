@@ -1,0 +1,2 @@
+def town():
+    pass

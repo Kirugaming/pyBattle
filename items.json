@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "itemName": "Wooden Sword",
+      "description": "The most basic sword",
+      "strength": 2,
+      "stamina": 1,
+      "magic": 0
+    },
+    {
+      "itemName": "Bow",
+      "description": "The most basic bow",
+      "strength": 1,
+      "stamina": 2,
+      "magic": 0
+    },
+    {
+      "itemName": "Weak Spell Book",
+      "description": "A shabby spell book filled with only one spell",
+      "strength": 1,
+      "stamina": 0,
+      "magic": 2
+    }
+  ]
+}
