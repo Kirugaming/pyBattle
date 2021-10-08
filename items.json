@@ -1,6 +1,10 @@
 {
   "items": [
     {
+      "itemName": "Starter Kit Voucher",
+      "description": "A Voucher for a starter kit. You can redeem this at the store"
+    },
+    {
       "itemName": "Wooden Sword",
       "description": "The most basic sword",
       "strength": 2,

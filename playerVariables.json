@@ -1,1 +1,1 @@
-{"player": [ {"playerName": "hi","playerMaxHealth": 100, "strength": 5, "stamina": 5, "magic": 5}]}
+{"playerData": [{"playerName": "kiru", "playerMaxHealth": 100, "strength": 5, "stamina": 5, "magic": 5}], "playerItems": [{"itemName": "Starter Kit Voucher"}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}, {"itemName": ""}]}
