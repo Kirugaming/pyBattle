@@ -1,7 +1,7 @@
 import json
 
 # Enemy Data
-enemyFile = open("enemies.json", "r")
+enemyFile = open("json/enemies.json", "r")
 enemies = json.loads(enemyFile.read())
 enemyNumber = 0
 enemyName = enemies["enemy"][enemyNumber]["enemyName"]

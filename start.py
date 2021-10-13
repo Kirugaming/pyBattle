@@ -10,7 +10,9 @@ def start():
 
     templatePlayerData = '{"playerData": [ { "playerName": "' + playerNameInput + '", "playerMaxHealth": 100, ' \
                                                                                   '"strength": 5, "stamina": 5, ' \
-                                                                                  '"magic": 5 } ], "playerItems": [ { ' \
+                                                                                  '"magic": 5 } ], "playerEquip": [ { ' \
+                                                                                  '"hand": "" }, { "armor": ""  } ], ' \
+                                                                                  '"playerItems": [ { ' \
                                                                                   '"itemName": "" }, { "itemName": "" ' \
                                                                                   '}, { "itemName": "" }, ' \
                                                                                   '{ "itemName": "" }, { "itemName": ' \
@@ -20,9 +22,12 @@ def start():
 
     player = json.loads(templatePlayerData)
 
-    player["playerItems"][0]["itemName"] = "Starter Kit Voucher"
+    itemFile = open('json/items.json', )
+    items = json.loads(itemFile.read())
 
-    playerFile = open("playerVariables.json", "w")
+    player["playerItems"][0]["itemName"] = items["items"][0]["itemName"]
+
+    playerFile = open("json/playerVariables.json", "w")
     playerFile.write(json.dumps(player))
     # playerData = open("playerVariables.json", "r")
     # jsonPlayerData = json.load(playerData)
@@ -37,5 +42,12 @@ def start():
 
     print("\nLooks like your all set! Dont forget to pick up your adventurer starter set at the shop.\nYou received a "
           "starter set voucher!")
-    # town()
+
+    # TODO add press key to go to next round of text
+
+    time.sleep(5)
+
+    playerFile.close()
+    itemFile.close()
+    town()
 # adventure hall where you register to be a adventure and go on your first quest
