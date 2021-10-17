@@ -1,5 +1,5 @@
 import json
-
+import time
 
 def town():
     print("\n\nWelcome to Town!\n")
