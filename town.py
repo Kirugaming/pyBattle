@@ -31,6 +31,8 @@ def town():
                 player["playerItems"][0] = items["items"][3]
                 print("\nYou obtained a Weak Spell Book")
         print("Sorry man, im not selling anything at the moment. Be sure to come back when i am!")
+        cont = input("[ > ]")
+        time.sleep(1)
 
         playerFile.write(json.dumps(player))
         itemFile.write(json.dumps(items))
