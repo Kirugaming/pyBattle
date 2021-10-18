@@ -38,14 +38,14 @@ def start():
         player["playerData"][0]["strength"]) + " strength, " + str(
         player["playerData"][0]["stamina"]) + " stamina, and " + str(player["playerData"][0]["magic"]) + " magic.")
 
-    time.sleep(2)
+    cont = input("[ > ]")
+    time.sleep(1)
 
     print("\nLooks like your all set! Dont forget to pick up your adventurer starter set at the shop.\nYou received a "
           "starter set voucher!")
 
-    # TODO add press key to go to next round of text
-
-    time.sleep(5)
+    cont = input("[ > ]")
+    time.sleep(1)
 
     playerFile.close()
     itemFile.close()
