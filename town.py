@@ -1,6 +1,9 @@
 import json
 import time
 
+from adventure import adventure
+
+
 def town():
     print("\n\nWelcome to Town!\n")
 
@@ -40,8 +43,6 @@ def town():
         itemFile.close()
         town()
 
-    # TODO: Add adventure hall to check stats and receive and turn in quests
-
     choice = input("Where do you want to go?\n[Shop][Leave]\n")
     if choice.lower() == "shop":
         shop()
@@ -49,4 +50,5 @@ def town():
         choice = input("Are you sure you want to leave town? [Y/n]")
         if choice == "n":
             town()
-        # leave()
+        print("You Leave the town\nOff to adventure!")
+        adventure()
