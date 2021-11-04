@@ -4,7 +4,9 @@ class Item:
             {
                 "itemName": "Starter Kit Voucher",
                 "description": "A Voucher for a starter kit. You can redeem this at the store"
-            },
+            }
+        ],
+        "weapon": [
             {
                 "itemName": "Wooden Sword",
                 "description": "A really terrible sword",
@@ -43,14 +45,15 @@ class Item:
         return self.description
 
 
-# DOES NOT WORK
 class Weapon(Item):
     def __init__(self, item_id):
-        super().__init__(item_id)
-        self.attack_stat = self.items["item"][item_id]["attack"]
-        self.strength_stat = self.items["item"][item_id]["strength"]
-        self.stamina_stat = self.items["item"][item_id]["stamina"]
-        self.magic_stat = self.items["item"][item_id]["magic"]
+        # this is horrifying
+        self.name = self.items["weapon"][item_id]["itemName"]
+        self.description = self.items["weapon"][item_id]["description"]
+        self.attack_stat = self.items["weapon"][item_id]["attack"]
+        self.strength_stat = self.items["weapon"][item_id]["strength"]
+        self.stamina_stat = self.items["weapon"][item_id]["stamina"]
+        self.magic_stat = self.items["weapon"][item_id]["magic"]
 
     def attack(self):
         return self.attack_stat
