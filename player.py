@@ -1,4 +1,4 @@
-from item import Item
+import item
 
 
 class Player:
@@ -36,8 +36,8 @@ def player_creation():
           str(player_data.stats["stamina"]) + " Stamina, and " + str(player_data.stats["magic"]) + " Magic.")
 
     # give player a voucher
-    player_data.set_bag(Item(0), 0)
+    player_data.set_bag(item.get_item_by_id("K00001"), 0)
     print("\nLooks like your all set! Dont forget to pick up your adventurer starter set at the shop.\nYou received a "
           "starter set voucher!")
-
+    print(player_data.get_bag(0).name())
     return player_data
