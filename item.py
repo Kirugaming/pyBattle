@@ -1,68 +1,72 @@
 class Item:
-    items = {
-        "item": [
-            {
-                "itemName": "Starter Kit Voucher",
-                "description": "A Voucher for a starter kit. You can redeem this at the store"
-            }
-        ],
-        "weapon": [
-            {
-                "itemName": "Wooden Sword",
-                "description": "A really terrible sword",
-                "attack": 2,
-                "strength": 2,
-                "stamina": 1,
-                "magic": 0
-            },
-            {
-                "itemName": "Bow",
-                "description": "The most basic bow",
-                "attack": 2,
-                "strength": 1,
-                "stamina": 2,
-                "magic": 0
-            },
-            {
-                "itemName": "Weak Spell Book",
-                "description": "A shabby spell book filled with only one spell",
-                "attack": 2,
-                "strength": 1,
-                "stamina": 0,
-                "magic": 2
-            }
-        ]
-    }
 
-    def __init__(self, item_id):
-        self.name = self.items["item"][item_id]["itemName"]
-        self.description = self.items["item"][item_id]["description"]
+    def __init__(self, name, description, item_id):
+        self._name = name
+        self._description = description
+        self._item_id = item_id
 
-    def name(self):
-        return self.name
+    @property
+    def name(self) -> str:
+        return self._name
 
-    def description(self):
-        return self.description
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def item_id(self) -> str:
+        return f"Item Id: {self._item_id}"
+
+
+class KeyItem(Item):
+    def __init__(self, name, description, item_id):
+        Item.__init__(self, name, description, item_id)
 
 
 class Weapon(Item):
-    def __init__(self, item_id):
-        # this is horrifying
-        self.name = self.items["weapon"][item_id]["itemName"]
-        self.description = self.items["weapon"][item_id]["description"]
-        self.attack_stat = self.items["weapon"][item_id]["attack"]
-        self.strength_stat = self.items["weapon"][item_id]["strength"]
-        self.stamina_stat = self.items["weapon"][item_id]["stamina"]
-        self.magic_stat = self.items["weapon"][item_id]["magic"]
+    def __init__(self, name, description, attack, strength, stamina, magic, item_id):
+        Item.__init__(self, name, description, item_id)
+        self._attack = attack
+        self._strength = strength
+        self._stamina = stamina
+        self._magic = magic
 
     def attack(self):
-        return self.attack_stat
+        return self._attack
 
     def strength(self):
-        return self.strength_stat
+        return self._strength
 
     def stamina(self):
-        return self.stamina_stat
+        return self._stamina
 
     def magic(self):
-        return self.magic_stat
+        return self._magic
+
+
+items = {
+    "K00001": KeyItem("Starter Kit Voucher",
+                      "A Voucher for a starter kit. You can redeem this at the store",
+                      "K00001"),
+    "W00001": Weapon("Wooden Sword",
+                     "A really terrible sword",
+                     2, 2, 1, 0, "W00001"),
+    "W00002": Weapon("Bow",
+                     "The most basic bow",
+                     2, 1, 2, 0, "W00002"),
+    "W0003": Weapon("Weak Spell Book",
+                    "A shabby spell book filled with only one spell",
+                    2, 1, 0, 2, "W00003")
+}
+
+
+def get_item_by_id(item_id) -> Item:
+    if item_id in items:
+        return items.get(item_id)
+
+
+def get_item_by_name(item_name) -> Item:
+    items_list = items.items()
+    for item in items_list:
+        if item[1].name == item_name:
+            return item[1]

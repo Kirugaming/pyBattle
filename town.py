@@ -1,8 +1,4 @@
 import item
-from player import player_creation
-from item import Item, Weapon
-
-from adventure import adventure
 
 
 def town(player_data):
@@ -20,13 +16,13 @@ def town(player_data):
                 "\nAh. i see you have a starter kit voucher from the adventurer guild. \nWhat weapon "
                 "would you like to exchange it for?\n[Wooden Sword][Bow][Spell Book]\n")
             if choice.lower() == "wooden sword":
-                player_data.set_bag(Weapon(0), 0)
+                player_data.set_bag(item.items["W00001"], 0)
                 print("\nYou obtained a Wooden Sword")
             if choice.lower() == "bow":
-                player_data.set_bag(Weapon(1), 0)
+                player_data.set_bag(item.items["W00002"], 0)
                 print("\nYou obtained a Bow")
             if choice.lower() == "spell book":
-                player_data.set_bag(Weapon(2), 0)
+                player_data.set_bag(item.items["W00003"], 0)
                 print("\nYou obtained a Weak Spell Book")
         print("Sorry man, im not selling anything at the moment. Be sure to come back when i am!")
         cont = input("[ > ]")
@@ -38,5 +34,5 @@ def town(player_data):
     elif choice.lower() == "leave":
         choice = input("Are you sure you want to leave town? [Y/n]")
         if choice == "n":
-            town()
+            town(player_data)
         print("You Leave the town\nOff to adventure!")
