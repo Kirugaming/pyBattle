@@ -101,6 +101,7 @@ def get_item_by_name(item_name) -> Item:
             return item[1]
 
 
+# contemplating about deleting this... when will i ever need to add a item during the program?
 def add_item_to_pool(item_id, name, description, attack="NOTCOOLJIM", strength="NOTCOOLJIM", stamina="NOTCOOLJIM",
                      magic="NOTCOOLJIM") -> bool:
     if item_id in items.keys():

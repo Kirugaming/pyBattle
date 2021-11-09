@@ -1,13 +1,5 @@
-import json
 
-# Enemy Data
-enemyFile = open("json/enemies.json", "r")
-enemies = json.loads(enemyFile.read())
-enemyNumber = 0
-enemyName = enemies["enemy"][enemyNumber]["enemyName"]
-enemyHealth = enemies["enemy"][enemyNumber]["enemyMaxHealth"]
-
-
+# WILL REMAKE IN NEXT COMMIT :)
 # be able to pass different monsters into the function
 def fight():
     global enemyHealth
