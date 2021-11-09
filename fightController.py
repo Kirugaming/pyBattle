@@ -1,22 +1,23 @@
+import enemy
 
-# WILL REMAKE IN NEXT COMMIT :)
+
 # be able to pass different monsters into the function
-def fight():
-    global enemyHealth
+def fight(encountered_id):
 
-    print("\nYou Encountered a " + enemyName)
+    encountered_enemy = enemy.get_enemy_by_id(encountered_id)
 
-    while enemyHealth > 0:
-        print(enemyName + " Health: " + str(enemyHealth))
+    print("\nYou Encountered a " + encountered_enemy.name)
+
+    while encountered_enemy.health > 0:
+        print(encountered_enemy.name + " Health: " + str(encountered_enemy.health))
         action = input("Type an Action\n"
-                       # Pick a action if i can figure it out later
                        "Fight, Bag, Run\n")
 
         # actions!
         if action.lower() == "fight":
-            print("You hit the " + enemyName + " for 2 damage.")
-            enemyHealth = enemyHealth - 2
-            print(enemyHealth)
+            print("You hit the " + encountered_enemy.name + " for 2 damage.")
+            encountered_enemy.health -= 2
+            print(encountered_enemy.health)
 
         if action.lower() == "bag":
             # print("You search your bag and find: ")
@@ -26,4 +27,4 @@ def fight():
             # print("You tried to run away from the enemy but it caught you")
             print("You got away from the enemy")
 
-    print("You defeated the " + enemyName)
+    print("You defeated the " + encountered_enemy.name)
