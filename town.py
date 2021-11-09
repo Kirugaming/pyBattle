@@ -1,4 +1,5 @@
 import item
+from fightController import fight
 
 
 def town(player_data):
@@ -36,3 +37,4 @@ def town(player_data):
         if choice == "n":
             town(player_data)
         print("You Leave the town\nOff to adventure!")
+        fight("E00001")

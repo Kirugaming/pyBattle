@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 
-class Enemy:
+class Enemy(object):
     def __init__(self, name, description, max_health, attack, defense, enemy_id):
         self._name = name
         self._description = description
         self._max_health = max_health
+        self._health = max_health
         self._attack = attack
         self._defense = defense
         self._enemy_id = enemy_id
@@ -23,6 +24,10 @@ class Enemy:
         return self._max_health
 
     @property
+    def health(self) -> str:
+        return self._health
+
+    @property
     def attack(self) -> str:
         return self._attack
 
@@ -37,6 +42,10 @@ class Enemy:
     @property
     def enemy_type(self) -> str:
         return self._enemy_id[0]
+
+    @health.setter
+    def health(self, value):
+        self._health = value
 
 
 enemies = {
