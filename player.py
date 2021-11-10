@@ -31,13 +31,14 @@ def player_creation():
 
     player_data = Player(name_input, 5, 5, 5)
 
-    print("\nYour name is " + player_data.name + "\nYour stats are " + str(player_data.stats["strength"]) +
+    print("\nYour name is " + player_data.name + ".\nYour stats are " + str(player_data.stats["strength"]) +
           " Strength, " +
           str(player_data.stats["stamina"]) + " Stamina, and " + str(player_data.stats["magic"]) + " Magic.")
+    cont = input("...")
 
     # give player a voucher
     player_data.set_bag(item.get_item_by_id("K00001"), 0)
-    print("\nLooks like your all set! Dont forget to pick up your adventurer starter set at the shop.\nYou received a "
-          "starter set voucher!")
-    print(player_data.get_bag(0).name())
+    print("\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
+          " \"STARTER KIT VOUCHER\"!]")
+    cont = input("...")
     return player_data
