@@ -2,26 +2,56 @@ import item
 
 
 class Player:
-    max_health = 100
 
     def __init__(self, name, strength, stamina, magic):
-        self.name = name
-        self.health = 100
-        self.stats = {"strength": strength, "stamina": stamina, "magic": magic}
-        self.bag = ["", "", "", "", ""]
-        self.gold = 0
+        self._name = name
+        self._max_health = 10
+        self._health = 10
+        self._stats = {"strength": strength, "stamina": stamina, "magic": magic}
+        self._bag = ["", "", "", "", ""]
+        self._gold = 0
 
-    def get_name(self):
-        return self.name
+    @property
+    def name(self):
+        return self._name
 
-    def get_bag(self, index):
-        return self.bag[index]
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name
 
-    def set_bag(self, item, position):
-        self.bag[position] = item
+    @property
+    def max_health(self):
+        return self._max_health
 
-    def remove_bag(self, index):
-        self.bag[index] = ""
+    @max_health.setter
+    def max_health(self, new_max_health):
+        self._max_health = new_max_health
+
+    @property
+    def health(self):
+        return self._health
+
+    @health.setter
+    def health(self, new_health):
+        self._health += new_health
+
+    # lists with @property are janky as hell. you dont need a @(function).setter for lists i guess.
+    # may have a method take parameters have a item and where to go and pass it through a setter.
+    @property
+    def stats(self):
+        return self._stats
+
+    @property
+    def bag(self):
+        return self._bag
+
+    @property
+    def gold(self):
+        return self._gold
+
+    @gold.setter
+    def gold(self, new_gold):
+        self._gold += new_gold
 
 
 def player_creation():
@@ -41,4 +71,5 @@ def player_creation():
     print("\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
           " \"STARTER KIT VOUCHER\"!]")
     cont = input("...")
+    
     return player_data

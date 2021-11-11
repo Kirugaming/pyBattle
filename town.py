@@ -10,8 +10,8 @@ def town(player_data):
 
         # starter kit choices
         # get first item in bag(which should be voucher) and get its name from item method
-        if player_data.get_bag(0).name() == "Starter Kit Voucher":
-            player_data.remove_bag(0)
+        if player_data.bag[0].name() == "Starter Kit Voucher":
+            player_data.bag[0] = ""
             choice = input(
                 "\nAh, I see you have a starter kit voucher from the adventurer guild. \nWhat weapon "
                 "would you like to exchange it for?\n[Wooden Sword]\n[Bow]\n[Spell Book]\n")
