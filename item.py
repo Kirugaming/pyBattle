@@ -99,20 +99,3 @@ def get_item_by_name(item_name) -> Item:
     for item in items_list:
         if item[1].name() == item_name:
             return item[1]
-
-
-def add_item_to_pool(item_id, name, description, attack="NOTCOOLJIM", strength="NOTCOOLJIM", stamina="NOTCOOLJIM",
-                     magic="NOTCOOLJIM") -> bool:
-    if item_id in items.keys():
-        return False
-
-    if item_id[0] == 'C':
-        items[item_id] = KeyItem(name, description, item_id)
-        return True
-
-    if item_id[0] == 'W':
-        if attack == "NOTCOOLJIM" or strength == "NOTCOOLJIM" or stamina == "NOTCOOLJIM" or magic == "NOTCOOLJIM":
-            raise ValueError("Item_id indicated a weapon was needed but stats for the weapon were missing")
-        else:
-            items[item_id] = Weapon(name, description, attack, strength, stamina, magic, item_id)
-            return True
