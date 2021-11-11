@@ -113,6 +113,5 @@ def add_item_to_pool(item_id, name, description, attack="NOTCOOLJIM", strength="
     if item_id[0] == 'W':
         if attack == "NOTCOOLJIM" or strength == "NOTCOOLJIM" or stamina == "NOTCOOLJIM" or magic == "NOTCOOLJIM":
             raise ValueError("Item_id indicated a weapon was needed but stats for the weapon were missing")
-        else:
-            items[item_id] = Weapon(name, description, attack, strength, stamina, magic, item_id)
-            return True
+        items[item_id] = Weapon(name, description, attack, strength, stamina, magic, item_id)
+        return True
