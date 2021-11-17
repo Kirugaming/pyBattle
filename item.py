@@ -78,13 +78,13 @@ items = {
                       "A Voucher for a starter kit. You can redeem this at the store",
                       "K00001"),
     "W00001": Weapon("Wooden Sword",
-                     "A really terrible sword",
+                     "A really terrible sword that doesnt fit your hand",
                      2, 2, 1, 0, "W00001"),
     "W00002": Weapon("Bow",
-                     "The most basic bow",
+                     "The most basic and boring bow",
                      2, 1, 2, 0, "W00002"),
     "W00003": Weapon("Weak Spell Book",
-                     "A shabby spell book filled with only one spell",
+                     "A shabby spell book with only one pathetic spell",
                      2, 1, 0, 2, "W00003")
 }
 
