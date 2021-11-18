@@ -78,13 +78,13 @@ items = {
                       "A Voucher for a starter kit. You can redeem this at the store",
                       "K00001"),
     "W00001": Weapon("Wooden Sword",
-                     "A really terrible sword",
+                     "A really terrible sword that doesnt fit your hand",
                      2, 2, 1, 0, "W00001"),
     "W00002": Weapon("Bow",
-                     "The most basic bow",
+                     "The most basic and boring bow",
                      2, 1, 2, 0, "W00002"),
     "W00003": Weapon("Weak Spell Book",
-                     "A shabby spell book filled with only one spell",
+                     "A shabby spell book with only one pathetic spell",
                      2, 1, 0, 2, "W00003")
 }
 
@@ -99,21 +99,3 @@ def get_item_by_name(item_name) -> Item:
     for item in items_list:
         if item[1].name() == item_name:
             return item[1]
-
-
-# contemplating about deleting this... when will i ever need to add a item during the program?
-def add_item_to_pool(item_id, name, description, attack="NOTCOOLJIM", strength="NOTCOOLJIM", stamina="NOTCOOLJIM",
-                     magic="NOTCOOLJIM") -> bool:
-    if item_id in items.keys():
-        return False
-
-    if item_id[0] == 'C':
-        items[item_id] = KeyItem(name, description, item_id)
-        return True
-
-    if item_id[0] == 'W':
-        if attack == "NOTCOOLJIM" or strength == "NOTCOOLJIM" or stamina == "NOTCOOLJIM" or magic == "NOTCOOLJIM":
-            raise ValueError("Item_id indicated a weapon was needed but stats for the weapon were missing")
-        else:
-            items[item_id] = Weapon(name, description, attack, strength, stamina, magic, item_id)
-            return True
