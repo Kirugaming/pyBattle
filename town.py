@@ -1,4 +1,5 @@
 import item
+import player
 
 
 def town(player_data):
@@ -26,6 +27,7 @@ def town(player_data):
                 print("\n[You obtained \"WEAK SPELL BOOK\"!]")
             print("Sorry man, I'm not selling anything at the moment. Be sure to come back when I am!")
             cont = input("...")
+        player.access_bag(player_data)
         town(player_data)
 
     choice = input("Where do you want to go?\n[Shop]\n[Leave]\n")
@@ -37,3 +39,4 @@ def town(player_data):
             town(player_data)
         print("You Leave the town\nOff to adventure!")
         cont = input("...")
+        # controller("E00001", player_data)
