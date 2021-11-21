@@ -113,6 +113,21 @@ class Player:
     def gold(self, new_gold):
         self._gold += new_gold
 
+    def access_bag(self):
+        print("Inside of your bag is...\n")
+        # TODO: print bag contents and actions below items
+
+    def equip_item(self):
+        print("ITEM was equipped\n")
+        # TODO: show item is equipped and equip player with item
+
+    def use_item(self):
+        print("ITEM was used\n")
+        # TODO: show item is used and trigger behavior item uses
+
+    def trash_item(self):
+        print("ITEM was tossed\n")
+        # TODO: show item was tossed and remove item from bag
 
 def player_creation():
     print("Welcome to the adventuring guild! Please register with the guild.")
