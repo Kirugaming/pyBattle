@@ -73,6 +73,7 @@ class Weapon(Item):
         return self._magic
 
 
+#  (self, name, description, attack, strength, stamina, magic, item_id):
 items = {
     "K00001": KeyItem("Starter Kit Voucher",
                       "A Voucher for a starter kit. You can redeem this at the store",
