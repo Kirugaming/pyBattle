@@ -19,10 +19,12 @@ def access_bag(player_data):
     if item_action.lower() == "equip":
         equip_item(player_data, bag_action)
 
-    if item_action.lower() == "use":
-        if player_data.bag[int(bag_action) - 1].item_id()[0] == "C":
-            # Consume item and give whatever depending on item
-            pass
+    if (
+        item_action.lower() == "use"
+        and player_data.bag[int(bag_action) - 1].item_id()[0] == "C"
+    ):
+        # Consume item and give whatever depending on item
+        pass
     if item_action.lower() == "trash":
         trash_question = input("Are you sure you want to trash this item?[y/n]")
         if trash_question.lower() == "y":
