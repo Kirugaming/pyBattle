@@ -9,7 +9,7 @@ def access_bag(player_data):
 
     bag_action = input("Pick a item number to access\n[bag number][leave]")
     if bag_action.lower() == "leave":
-        return
+        return player_data
     item_action = input(
         "What would you like to do with " + player_data.bag[int(bag_action) - 1].name() + "\n[Equip][Use]["
                                                                                           "Trash]")
@@ -24,28 +24,20 @@ def access_bag(player_data):
 
 def equip_item(player_data, bag_action):
     if player_data.bag[int(bag_action) - 1].item_id()[0] == "W":
-        for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
-            if player_data.bag[bag_index] == "":
-                swap_equips(player_data, "weapon", bag_index, bag_action)
-        print("You don't have enough room in your bag")
-
+        swap_equips(player_data, "weapon", bag_action)
     elif player_data.bag[int(bag_action) - 1].item_id()[0] == "A":
-        for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
-            if player_data.bag[bag_index] == "":
-                swap_equips(player_data, "armor", bag_index, bag_action)
-        print("You don't have enough room in your bag")
+        swap_equips(player_data, "armor", bag_action)
     else:
         print("You can not equip this")
 
     access_bag(player_data)
 
 
-def swap_equips(player_data, item_type, bag_index, bag_action):
+def swap_equips(player_data, item_type, bag_action):
     item_withholding = player_data.equips[item_type]
     player_data.equips[item_type] = player_data.bag[int(bag_action) - 1]
     player_data.bag[int(bag_action) - 1] = item_withholding
     print(player_data.equips[item_type].name() + " was equipped\n")
-    access_bag(player_data)
 
 
 def use_item():
@@ -128,6 +120,7 @@ class Player:
     def trash_item(self):
         print("ITEM was tossed\n")
         # TODO: show item was tossed and remove item from bag
+
 
 def player_creation():
     print("Welcome to the adventuring guild! Please register with the guild.")
