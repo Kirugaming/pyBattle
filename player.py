@@ -4,7 +4,10 @@ import item
 def access_bag(player_data):
     print("Inside of your bag is...")
     for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
-        if player_data.bag[bag_index]:
+        if player_data.bag[0] == "":
+            print("Your bag is empty :(")
+            return player_data
+        elif player_data.bag[bag_index]:
             print("[" + str(bag_index + 1) + " : " + (player_data.bag[bag_index].name()) + "]")
 
     bag_action = input("Pick a item number to access\n[bag number][leave]")
@@ -17,12 +20,21 @@ def access_bag(player_data):
         equip_item(player_data, bag_action)
 
     if item_action.lower() == "use":
-        pass
+        if player_data.bag[int(bag_action) - 1].item_id()[0] == "C":
+            # Consume item and give whatever depending on item
+            pass
     if item_action.lower() == "trash":
-        pass
+        trash_question = input("Are you sure you want to trash this item?[y/n]")
+        if trash_question.lower() == "y":
+            print(player_data.bag[int(bag_action) - 1].name() + " Has been trashed.")
+            player_data.bag[int(bag_action)-1] = ""
+        elif trash_question.lower() == "n":
+            access_bag(player_data)
 
 
 def equip_item(player_data, bag_action):
+    if player_data.bag[int(bag_action) - 1] == "":
+        print("There is nothing to equip.")
     if player_data.bag[int(bag_action) - 1].item_id()[0] == "W":
         swap_equips(player_data, "weapon", bag_action)
     elif player_data.bag[int(bag_action) - 1].item_id()[0] == "A":
