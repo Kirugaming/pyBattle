@@ -58,17 +58,17 @@ class Player:
 
 
 def player_creation():
-    print("Welcome to the adventuring guild! Please register with the guild.")
-
-    name_input = input("Enter a name for your character: ")
+    name_input = input(
+        "Welcome to the adventuring guild! Please register with the guild.\nEnter a name for your character: ")
 
     player_data = Player(name_input, 5, 5, 5)
 
-    print(f"\nYour name is {player_data.name}.\nYour stats are {str(player_data.stats['strength'])}  Strength, {str(player_data.stats['stamina'])} Stamina, and {str(player_data.stats['magic'])} Magic.")
+    print(
+        f"\nYour name is {player_data.name}.\nYour stats are {str(player_data.stats['strength'])} Strength, {str(player_data.stats['stamina'])} Stamina, and {str(player_data.stats['magic'])} Magic.")
 
     # give player a voucher
     player_data.bag[0] = item.get_item_by_id("K00001")
-    print("\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
-          " \"STARTER KIT VOUCHER\"!]")
-    cont = input("...")
+    cont = input(
+        "\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
+        " \"STARTER KIT VOUCHER\"!]\n...")
     return player_data
