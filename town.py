@@ -1,6 +1,7 @@
 import bag
 import item
 import player
+from fightController import controller
 
 
 def new_player_gift(player_data):
@@ -20,6 +21,7 @@ def new_player_gift(player_data):
     if choice.lower() == "spell book":
         player_data.bag[0] = item.get_item_by_id("W00003")
         print("\n[You obtained \"WEAK SPELL BOOK\"!]")
+    shop(player_data)
 
 
 def shop(player_data):
@@ -31,6 +33,9 @@ def shop(player_data):
 
     elif player_data.bag[0].name() == "Starter Kit Voucher":
         new_player_gift(player_data)
+    else:
+        cont = input("Sorry man, I'm not selling anything at the moment. Be sure to come back when I am!\n...")
+        town(player_data)
 
 
 def town(player_data):
@@ -48,4 +53,4 @@ def town(player_data):
             town(player_data)
         print("You Leave the town\nOff to adventure!")
         cont = input("...")
-        # controller("E00001", player_data)
+        controller("E00003", player_data)
