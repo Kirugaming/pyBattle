@@ -73,7 +73,5 @@ def player_creation():
 
     # give player a voucher
     player_data.bag[0] = item.get_item_by_id("K00001")
-    cont = input(
-        "\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
-        " \"STARTER KIT VOUCHER\"!]\n...")
+
     return player_data
