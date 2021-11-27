@@ -63,13 +63,12 @@ class Player:
 
 
 def player_creation():
-    player_data = Player(
+    return Player(
         input(
-            "Welcome to the adventuring guild! Please register with the guild.\nEnter a name for your character: "),
-        PLAYER_START_STRENGTH, PLAYER_START_STAMINA, PLAYER_START_MAGIC, PLAYER_START_MAX_HEALTH)
-
-    print(
-        f"\nYour name is {player_data.name}.\nYour stats are {str(player_data.stats['strength'])} Strength, {str(player_data.stats['stamina'])} Stamina, and {str(player_data.stats['magic'])} Magic.")
-
-
-    return player_data
+            "Welcome to the adventuring guild! Please register with the guild.\nEnter a name for your character: "
+        ),
+        PLAYER_START_STRENGTH,
+        PLAYER_START_STAMINA,
+        PLAYER_START_MAGIC,
+        PLAYER_START_MAX_HEALTH,
+    )
