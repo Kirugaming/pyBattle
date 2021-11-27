@@ -20,19 +20,19 @@ class Enemy(object):
         return self._description
 
     @property
-    def max_health(self) -> str:
+    def max_health(self) -> int:
         return self._max_health
 
     @property
-    def health(self) -> str:
+    def health(self) -> int:
         return self._health
 
     @property
-    def attack(self) -> str:
+    def attack(self) -> int:
         return self._attack
 
     @property
-    def defense(self) -> str:
+    def defense(self) -> int:
         return self._defense
 
     @property
@@ -45,7 +45,7 @@ class Enemy(object):
 
     @health.setter
     def health(self, value):
-        self._health += value
+        self._health -= value
 
 
 enemies = {

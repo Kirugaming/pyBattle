@@ -1,5 +1,3 @@
-import item
-
 PLAYER_START_STRENGTH = 5
 PLAYER_START_STAMINA = 5
 PLAYER_START_MAGIC = 5
@@ -39,7 +37,7 @@ class Player:
 
     @health.setter
     def health(self, new_health):
-        self._health += new_health
+        self._health = new_health
 
     @property
     def stats(self) -> dict:
