@@ -1,3 +1,4 @@
+import bag
 import item
 import player
 
@@ -39,7 +40,7 @@ def town(player_data):
     if choice.lower() == "shop":
         shop()
     elif choice.lower() == "bag":
-        player.access_bag(player_data)
+        bag.access_bag(player_data)
         town(player_data)
     elif choice.lower() == "leave":
         choice = input("Are you sure you want to leave town? [Y/n]")
