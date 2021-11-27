@@ -71,7 +71,5 @@ def player_creation():
     print(
         f"\nYour name is {player_data.name}.\nYour stats are {str(player_data.stats['strength'])} Strength, {str(player_data.stats['stamina'])} Stamina, and {str(player_data.stats['magic'])} Magic.")
 
-    # give player a voucher
-    player_data.bag[0] = item.get_item_by_id("K00001")
 
     return player_data
