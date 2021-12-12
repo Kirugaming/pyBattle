@@ -45,7 +45,7 @@ class Enemy(object):
 
     @health.setter
     def health(self, value):
-        self._health -= value
+        self._health = value
 
 
 enemies = {

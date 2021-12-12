@@ -1,7 +1,7 @@
-PLAYER_START_STRENGTH = 5
-PLAYER_START_STAMINA = 5
-PLAYER_START_MAGIC = 5
-PLAYER_START_MAX_HEALTH = 10
+PLAYER_START_STRENGTH: int = 5
+PLAYER_START_STAMINA: int = 5
+PLAYER_START_MAGIC: int = 5
+PLAYER_START_MAX_HEALTH: int = 10
 
 
 class Player:
@@ -11,8 +11,8 @@ class Player:
         self._max_health = max_health
         self._health = self._max_health
         self._stats = {"strength": strength, "stamina": stamina, "magic": magic}
-        self._bag = ["", "", "", "", ""]
-        self._equips = {"weapon": "", "armor": ""}
+        self._bag = [None, None, None, None, None]
+        self._equips = {"weapon": None, "armor": None}
         self._gold = 0
 
     @property
@@ -57,7 +57,7 @@ class Player:
 
     @gold.setter
     def gold(self, new_gold):
-        self._gold += new_gold
+        self._gold = new_gold
 
 
 def player_creation():

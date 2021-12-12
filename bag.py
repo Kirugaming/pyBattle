@@ -1,7 +1,7 @@
 def print_bag(player_data):
     print("Inside of your bag is...")
     for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
-        if player_data.bag[0] == "":
+        if all(item_in_bag is None for item_in_bag in player_data.bag):
             print("Your bag is empty :(")
             return player_data
         elif player_data.bag[bag_index]:
@@ -28,9 +28,9 @@ def access_bag(player_data):
 
 
 def equip_item(player_data, bag_action):
-    if player_data.bag[int(bag_action) - 1] == "":
+    if player_data.bag[int(bag_action) - 1] is None:
         print("There is nothing to equip.")
-    if player_data.bag[int(bag_action) - 1].item_id()[0] == "W":
+    elif player_data.bag[int(bag_action) - 1].item_id()[0] == "W":
         swap_equips(player_data, "weapon", bag_action)
     elif player_data.bag[int(bag_action) - 1].item_id()[0] == "A":
         swap_equips(player_data, "armor", bag_action)
@@ -56,6 +56,6 @@ def trash_item(player_data, bag_action):
     trash_question = input("Are you sure you want to trash this item?[y/n]")
     if trash_question.lower() == "y":
         print(f"{player_data.bag[int(bag_action) - 1].name()} Has been trashed.")
-        player_data.bag[int(bag_action) - 1] = ""
+        player_data.bag[int(bag_action) - 1] = None
     elif trash_question.lower() == "n":
         access_bag(player_data)

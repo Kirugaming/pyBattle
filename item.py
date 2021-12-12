@@ -98,5 +98,5 @@ def get_item_by_id(item_id) -> Item:
 def get_item_by_name(item_name) -> Item:
     items_list = items.items()
     for item in items_list:
-        if item[1].name() == item_name:
+        if item[1].name().lower() == item_name:
             return item[1]
