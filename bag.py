@@ -1,3 +1,6 @@
+from ask import ask
+
+
 def print_bag(player_data):
     print("Inside of your bag is...")
     for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
@@ -11,6 +14,7 @@ def print_bag(player_data):
 def access_bag(player_data):
     print_bag(player_data)
 
+    # TODO: Need to make case sensitive to have switch statements here
     bag_action = input("Pick a item number to access\n[bag number][leave]")
     if bag_action.lower() == "leave":
         return player_data
@@ -53,9 +57,9 @@ def use_item(player_data, bag_action):
 
 
 def trash_item(player_data, bag_action):
-    trash_question = input("Are you sure you want to trash this item?[y/n]")
-    if trash_question.lower() == "y":
-        print(f"{player_data.bag[int(bag_action) - 1].name()} Has been trashed.")
-        player_data.bag[int(bag_action) - 1] = None
-    elif trash_question.lower() == "n":
-        access_bag(player_data)
+    match ask("Are you sure you want to trash this item?", ("y", "n")):
+        case "y":
+            print(f"{player_data.bag[int(bag_action) - 1].name()} Has been trashed.")
+            player_data.bag[int(bag_action) - 1] = None
+        case "n":
+            access_bag(player_data)

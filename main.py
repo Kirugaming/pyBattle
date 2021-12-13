@@ -1,5 +1,6 @@
 import player
 import item
+from ask import ask, continu
 from town import town
 
 
@@ -15,9 +16,8 @@ def player_start():
 
     # give player a voucher
     player_data.bag[0] = item.get_item_by_id("K00001")
-    cont = input(
-        "\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You obtained"
-        " \"STARTER KIT VOUCHER\"!]\n...")
+    continu("\nLooks like you're all set! Don't forget to pick up your adventurer starter set at the shop.\n[You "
+            "obtained \"STARTER KIT VOUCHER\"!]")
     town(player_data)
 
 
@@ -28,9 +28,9 @@ if __name__ == '__main__':
     print(" |  _ < / /\\ \\ | |     | |  | |    |  __| | |")
     print(" | |_) / ____ \\| |     | |  | |____| |____|_|")
     print(" |____/_/    \\_\\_|     |_|  |______|______(_)")
-    answer = input("\nStart Game? [Y/n]\n")
-    if answer == "n":
-        print("closing...")
-    else:
-        player_start()
-
+    match ask("Start Game?", ("y", "n")):
+        case "n":
+            print("closing...")
+            quit()
+        case _:
+            player_start()
