@@ -2,8 +2,9 @@ from random import randint
 import bag
 import enemy
 
-
 # be able to pass different monsters into the function
+from ask import ask, continu
+
 
 def fight(encountered_enemy, player_data):
     player_damage = 0
@@ -46,20 +47,17 @@ def controller(encountered_id, player_data):
     print(f"\nYou Encountered a {encountered_enemy.name}")
 
     while encountered_enemy.health > 0:
+
         print(
             f"\n{player_data.name}'s Health: {player_data.health}\n{encountered_enemy.name}  Health:  {encountered_enemy.health}")
-        action = input("Type an Action\n"
-                       "[Fight], [Bag], [Run]\n").lower()
 
-        # actions!
-        if action == "fight":
-            fight(encountered_enemy, player_data)
-        elif action == "bag":
-            bag.access_bag(player_data)
-
-        elif action == "run" and run(player_data, encountered_enemy):
-            return
-        else:
-            print("Please type correct action.")
+        match ask("Type an Action", (fight, bag, run)):
+            case "fight":
+                fight(encountered_enemy, player_data)
+            case "bag":
+                bag.access_bag(player_data)
+            case "run":
+                if run(player_data, encountered_enemy):
+                    return
 
     print(f"You defeated the  {encountered_enemy.name}")

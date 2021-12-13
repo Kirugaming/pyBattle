@@ -1,49 +1,54 @@
-def print_bag(player_data):
-    print("Inside of your bag is...")
-    for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
-        if all(item_in_bag is None for item_in_bag in player_data.bag):
-            print("Your bag is empty :(")
-            return player_data
-        elif player_data.bag[bag_index]:
-            print(f'[{bag_index + 1} : {player_data.bag[bag_index].name()}]')
+from ask import ask
+
+
+def print_bag(player_data) -> str:
+    if all(player_data.bag) is None:
+        return "Your bag is empty :("
+    return "Inside of your bag is...".join(
+        f'\n[{bag_index + 1} : {player_data.bag[bag_index].name()}]'
+        for bag_index, item_in_bag in enumerate(player_data.bag, start=0)
+        if item_in_bag is not None
+    )
 
 
 def access_bag(player_data):
-    print_bag(player_data)
+    while True:
+        bag_action = input(f"{print_bag(player_data)}\nPick a item number to access\n[bag number][leave]").lower()     # i cant figure out how to simplify this AAA
 
-    bag_action = input("Pick a item number to access\n[bag number][leave]")
-    if bag_action.lower() == "leave":
-        return player_data
-    item_action = input(
-        "What would you like to do with " + player_data.bag[int(bag_action) - 1].name() + "\n[Equip][Use]["
-                                                                                          "Trash]")
-    if item_action.lower() == "equip":
-        equip_item(player_data, bag_action)
+        if bag_action == "leave":
+            return player_data
+        bag_action = player_data.bag[int(bag_action) - 1]
 
-    if item_action.lower() == "use" and player_data.bag[int(bag_action) - 1].item_id()[0] == "C":
-        use_item(player_data, bag_action)
-
-    if item_action.lower() == "trash":
-        trash_item(player_data, bag_action)
+        match ask(f"What would you like to do with {bag_action.name()}?", ("equip", "use", "trash")):
+            case "equip":
+                equip_item(player_data, bag_action)
+            case "use":
+                use_item(player_data, bag_action)
+            case "trash":
+                trash_item(player_data, bag_action)
 
 
 def equip_item(player_data, bag_action):
-    if player_data.bag[int(bag_action) - 1] is None:
-        print("There is nothing to equip.")
-    elif player_data.bag[int(bag_action) - 1].item_id()[0] == "W":
-        swap_equips(player_data, "weapon", bag_action)
-    elif player_data.bag[int(bag_action) - 1].item_id()[0] == "A":
-        swap_equips(player_data, "armor", bag_action)
-    else:
-        print("You can not equip this")
-
-    access_bag(player_data)
+    match bag_action.item_id()[0]:   # get first letter of id which determines item type
+        case None:
+            print("There is nothing to equip.")
+        case "W":
+            swap_equips(player_data, "weapon", bag_action)
+        case "A":
+            swap_equips(player_data, "armor", bag_action)
+        case _:
+            print("You can not equip this")
 
 
 def swap_equips(player_data, item_type, bag_action):
     item_withholding = player_data.equips[item_type]
-    player_data.equips[item_type] = player_data.bag[int(bag_action) - 1]
-    player_data.bag[int(bag_action) - 1] = item_withholding
+    player_data.equips[item_type] = bag_action
+
+    for bag_index, item_in_bag in enumerate(player_data.bag, start=0):
+        if player_data.bag[bag_index] is bag_action:
+            player_data.bag[bag_index] = item_withholding
+            break
+
     print(f"{player_data.equips[item_type].name()} was equipped\n")
 
 
@@ -53,9 +58,9 @@ def use_item(player_data, bag_action):
 
 
 def trash_item(player_data, bag_action):
-    trash_question = input("Are you sure you want to trash this item?[y/n]")
-    if trash_question.lower() == "y":
-        print(f"{player_data.bag[int(bag_action) - 1].name()} Has been trashed.")
-        player_data.bag[int(bag_action) - 1] = None
-    elif trash_question.lower() == "n":
-        access_bag(player_data)
+    match ask("Are you sure you want to trash this item?", ("y", "n")):
+        case "y":
+            print(f"{player_data.bag[int(bag_action) - 1].name()} Has been trashed.")
+            player_data.bag[int(bag_action) - 1] = None
+        case "n":
+            return
