@@ -50,6 +50,7 @@ class Weapon(Item):
         self._strength = strength
         self._stamina = stamina
         self._magic = magic
+        self._item_id = item_id
 
     def name(self) -> str:
         return self._name
@@ -71,6 +72,9 @@ class Weapon(Item):
 
     def magic(self) -> int:
         return self._magic
+
+    def item_id(self) -> str:
+        return self._item_id
 
 
 #  (self, name, description, attack, strength, stamina, magic, item_id):
@@ -98,5 +102,5 @@ def get_item_by_id(item_id) -> Item:
 def get_item_by_name(item_name) -> Item:
     items_list = items.items()
     for item in items_list:
-        if item[1].name() == item_name:
+        if item[1].name().lower() == item_name:
             return item[1]
