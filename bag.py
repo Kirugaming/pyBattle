@@ -1,19 +1,23 @@
 from ask import ask
+from item import Item
 
 
 def print_bag(player_data) -> str:
-    if all(player_data.bag) is None:
-        return "Your bag is empty :("
-    return "Inside of your bag is...".join(
-        f'\n[{bag_index + 1} : {player_data.bag[bag_index].name()}]'
+    bag = "".join(
+        f"\n[{bag_index + 1} : {player_data.bag[bag_index].name()}]"
         for bag_index, item_in_bag in enumerate(player_data.bag, start=0)
-        if item_in_bag is not None
+        if isinstance(item_in_bag, Item)
     )
+    if bag == "":
+        return "Your bag is empty :("
+    return bag
 
 
 def access_bag(player_data):
     while True:
-        bag_action = input(f"{print_bag(player_data)}\nPick a item number to access\n[bag number][leave]").lower()     # i cant figure out how to simplify this AAA
+        bag_action = input(
+            f"{print_bag(player_data)}\nPick a item number to access\n[bag number][leave]").lower()
+        # i cant figure out how to simplify this AAA
 
         if bag_action == "leave":
             return player_data
@@ -29,7 +33,7 @@ def access_bag(player_data):
 
 
 def equip_item(player_data, bag_action):
-    match bag_action.item_id()[0]:   # get first letter of id which determines item type
+    match bag_action.item_type():  # get first letter of id which determines item type
         case None:
             print("There is nothing to equip.")
         case "W":

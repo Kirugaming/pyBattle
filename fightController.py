@@ -51,7 +51,7 @@ def controller(encountered_id, player_data):
         print(
             f"\n{player_data.name}'s Health: {player_data.health}\n{encountered_enemy.name}  Health:  {encountered_enemy.health}")
 
-        match ask("Type an Action", (fight, bag, run)):
+        match ask("Type an Action", ("fight", "bag", "run")):
             case "fight":
                 fight(encountered_enemy, player_data)
             case "bag":

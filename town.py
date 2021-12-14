@@ -44,10 +44,9 @@ def town(player_data):
             bag.access_bag(player_data)
             town(player_data)  # go back to start of town script
         case "leave":
-            pass
             #     elif choice == "leave" and input("Are you sure you want to leave town? [Y/n]" == "n"):
             #         town(player_data)
             #     elif choice == "leave" and input("Are you sure you want to leave town? [Y/n]"):
             #         print("You Leave the town\nOff to adventure!")
             #         cont = input("...")
-            #         controller("E00003", player_data)
+                controller("E00003", player_data)

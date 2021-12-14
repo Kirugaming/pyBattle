@@ -50,6 +50,7 @@ class Weapon(Item):
         self._strength = strength
         self._stamina = stamina
         self._magic = magic
+        self._item_id = item_id
 
     def name(self) -> str:
         return self._name
@@ -71,6 +72,9 @@ class Weapon(Item):
 
     def magic(self) -> int:
         return self._magic
+
+    def item_id(self) -> str:
+        return self._item_id
 
 
 #  (self, name, description, attack, strength, stamina, magic, item_id):
