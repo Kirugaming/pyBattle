@@ -1,6 +1,7 @@
 import bag
 import item
 import player
+import adventure
 from ask import ask, continu
 from fightController import controller
 
@@ -49,4 +50,5 @@ def town(player_data):
             #     elif choice == "leave" and input("Are you sure you want to leave town? [Y/n]"):
             #         print("You Leave the town\nOff to adventure!")
             #         cont = input("...")
-                controller("E00003", player_data)
+            adventure.adventure(player_data)
+            #   controller("E00003", player_data)

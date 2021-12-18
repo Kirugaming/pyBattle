@@ -84,13 +84,13 @@ items = {
                       "K00001"),
     "W00001": Weapon("Wooden Sword",
                      "A really terrible sword that doesnt fit your hand",
-                     5, 2, 1, 0, "W00001"),
+                     7, 2, 1, 0, "W00001"),
     "W00002": Weapon("Bow",
                      "The most basic and boring bow",
-                     5, 1, 2, 0, "W00002"),
+                     7, 1, 2, 0, "W00002"),
     "W00003": Weapon("Weak Spell Book",
                      "A shabby spell book with only one pathetic spell",
-                     5, 1, 0, 2, "W00003")
+                     7, 1, 0, 2, "W00003")
 }
 
 

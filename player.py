@@ -1,7 +1,7 @@
 PLAYER_START_STRENGTH: int = 5
 PLAYER_START_STAMINA: int = 5
 PLAYER_START_MAGIC: int = 5
-PLAYER_START_MAX_HEALTH: int = 10
+PLAYER_START_MAX_HEALTH: int = 20
 
 
 class Player:
@@ -13,6 +13,7 @@ class Player:
         self._stats = {"strength": strength, "stamina": stamina, "magic": magic}
         self._bag = [None, None, None, None, None]
         self._equips = {"weapon": None, "armor": None}
+        self._known_locations = ["town"]
         self._gold = 0
 
     @property
@@ -50,6 +51,10 @@ class Player:
     @property
     def equips(self) -> dict:
         return self._equips
+
+    @property
+    def known_locations(self) -> list:
+        return self._known_locations
 
     @property
     def gold(self) -> int:

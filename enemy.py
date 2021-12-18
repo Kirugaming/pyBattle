@@ -1,4 +1,5 @@
 from __future__ import annotations
+from copy import copy
 
 
 class Enemy(object):
@@ -63,4 +64,4 @@ enemies = {
 
 def get_enemy_by_id(enemy_id) -> Enemy:
     if enemy_id in enemies:
-        return enemies[enemy_id]
+        return copy(enemies[enemy_id])
