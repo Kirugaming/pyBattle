@@ -1,6 +1,7 @@
+from copy import copy
 from random import randint
 import bag
-import enemy
+from enemy import get_enemy_by_id
 
 # be able to pass different monsters into the function
 from ask import ask, continu
@@ -42,7 +43,7 @@ def run(player_data, encountered_enemy):
 
 
 def controller(encountered_id, player_data):
-    encountered_enemy = enemy.get_enemy_by_id(encountered_id)
+    encountered_enemy = get_enemy_by_id(encountered_id)
 
     print(f"\nYou Encountered a {encountered_enemy.name}")
 
@@ -61,3 +62,5 @@ def controller(encountered_id, player_data):
                     return
 
     print(f"You defeated the  {encountered_enemy.name}")
+    del encountered_enemy
+    return
