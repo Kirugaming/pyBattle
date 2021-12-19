@@ -1,6 +1,7 @@
 import random
 
 from ask import ask
+import camping
 from fightController import controller
 import town
 
@@ -11,6 +12,7 @@ def fork(player_data):
 
 def dungeon(player_data):
     print("You found a Dungeon!")
+    camping.ask_camp(player_data)
 
 
 def randomEncounter(player_data):
