@@ -1,4 +1,4 @@
-# pyBattle
+# pyBattle - Text based adventure game
 pyBattle is a text based fantasy adventure game written completely in Python.
 
 TODO for pyBattle so far:
