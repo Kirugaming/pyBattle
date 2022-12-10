@@ -11,6 +11,6 @@ TODO for pyBattle so far:
 - [ ] Dungeons
 - [ ] Camping
 
-update: going to go unfinished for now while i work on other things :)
+update: going to go unfinished for now while i work on other things :D
 
 If you have any suggestions you would like to add to the game be sure to contact me about them. 
